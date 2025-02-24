@@ -1,0 +1,28 @@
+services:
+  apache:
+    container_name: apache
+    build:
+      context: ./apache
+      dockerfile: Dockerfile 
+    ports:
+      - 8080:8080
+    networks:
+      - network
+  
+  nginx:
+    container_name: nginx
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    ports:
+      - 80:80
+    networks:
+      - network
+    volumes:
+      - /home/yuuarai/docker/nginx/nginx:/usr/share/nginx
+    depends_on:
+      - apache
+
+networks:
+  network:
+    driver: bridge
