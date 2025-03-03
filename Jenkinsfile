@@ -7,7 +7,7 @@ pipeline {
         DOCKER_IMAGE_NGINX = "k1networth/my-nginx:finally"
         DOCKER_IMAGE_APACHE = "k1networth/my-apache:finally"
         UBUNTU_USER = "yuuarai"
-        UBUNTU_IP = "89.169.145.246"
+        UBUNTU_IP = "89.169.141.248"
     }
 
     stages {
@@ -66,12 +66,6 @@ pipeline {
                     }
                 }
             }
-        }
-    }
-    
-    post {
-        always {
-            sh 'docker image prune -f'
         }
     }
 }
